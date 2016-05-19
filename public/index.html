@@ -34,7 +34,7 @@
 		},
 		componentDidMount: function() {
 			this.loadCommentsFromServer();
-      setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+      		setInterval(this.loadCommentsFromServer, this.props.pollInterval);
 		},
 		render: function() {
 			return (
@@ -65,12 +65,15 @@
 			}
 		});
 
+		// tutorial 15
 		var CommentForm = React.createClass({
 			render: function(){
 				return (
-					<div className="commentForm">
-						Hello, world! I am a commentForm
-					</div>
+					<form className="commentForm">
+						<input type="text" placeholder="Your name" />
+						<input type="text" placeholder="Say something..." />
+						<input type="submit" value="Post" />
+					</form>
 				);
 			}
 		});
