@@ -14,10 +14,10 @@
   <body>
     <div id="content"></div>
 	<script type="text/babel">
-		// tutorial 14
+		// tutorial 18
 		var CommentBox = React.createClass({
-    loadCommentsFromServer: function(){
-      $.ajax({
+    	loadCommentsFromServer: function(){
+      	$.ajax({
 			url: this.props.url,
 			dataType: 'json',
 			cache: false,
@@ -28,7 +28,10 @@
 				console.error(this.props.url, status, err.toString());
 			}.bind(this)
 			});
-    },
+		},
+		handleCommentSubmit: function() {
+			// TODO: submit tot the server and refresh the list
+		},
 		getInitialState: function() {
 			return {data: []};
 		},
@@ -41,7 +44,7 @@
 			<div className="commentBox">
 				<h1>Comments</h1>
 				<CommentList data={this.state.data} />
-				<CommentForm />
+				<CommentForm onCommentSubmit={this.handleCommentSubmit}/>
 			</div>
 			);
 		}
